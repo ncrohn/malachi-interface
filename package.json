@@ -1,15 +1,19 @@
 {
-  "name": "socket-bus-interface",
+  "name": "malachi-interface",
   "version": "0.0.0",
-  "description": "Interface adapter for services to easily communicate on the Socket Bus.",
+  "description": "Interface adapter for services to easily communicate on the Malachi service bus.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha -c -u bdd -R spec"
   },
   "repository": "",
   "author": "Nick Crohn",
   "license": "MIT",
   "dependencies": {
-    "socket.io-client": "~0.9.11"
+    "socket.io-client": "~0.9.11",
+    "underscore": "~1.4.4"
+  },
+  "devDependencies": {
+    "mocha": "~1.8.1"
   }
 }
