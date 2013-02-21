@@ -20,7 +20,7 @@ describe('ServiceInterface', function() {
     });
   });
 
-  describe('#connect', function() {
+  describe('#methods', function() {
 
     it('should connect', function(done) {
       si.on(ServiceInterface.SERVICE_EVENTS.CONNECT, function() {
@@ -29,6 +29,15 @@ describe('ServiceInterface', function() {
       });
 
       si.connect();
+    });
+
+    it('should broadcast', function(done) {
+      si.on(ServiceInterface.SYSTEM_EVENTS.BROADCAST, function(message) {
+        assert.equal('test message', message);
+        done();
+      });
+
+      si.broadcast('test message');
     });
 
     it('should disconnect', function(done) {
