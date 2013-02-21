@@ -10,7 +10,7 @@ describe('ServiceInterface', function() {
   before(function() {
 
     sb = new ServiceBus();
-    sb.listen(444444);
+    sb.listen(44444);
 
     si = new ServiceInterface({
       url: 'http://localhost:44444',
@@ -23,10 +23,22 @@ describe('ServiceInterface', function() {
   describe('#connect', function() {
 
     it('should connect', function(done) {
-      si.on('connect', function() {
+      si.on(ServiceInterface.SERVICE_EVENTS.CONNECT, function() {
         assert.equal(0, 0);
         done();
       });
+
+      si.connect();
+    });
+
+    it('should disconnect', function(done) {
+      si.on(ServiceInterface.SERVICE_EVENTS.DISCONNECT, function() {
+        assert.equal(0, 0);
+        done();
+      });
+
+      si.disconnect();
+
     });
 
   });
